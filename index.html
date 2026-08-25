@@ -18,8 +18,32 @@
         <h2>Live Support Service</h2>
         <p>Your session is ready. Click below to connect with our official support team via WhatsApp.</p>
         
-        <!-- 确认里面的手机号是你要接客的 WhatsApp 号码 -->
-        <a href="https://api.whatsapp.com/send?phone=855963872564&text=Hi" rel="noreferrer" class="btn">Connect to WhatsApp</a>
+        <!-- 按钮触发动态随机跳转 -->
+        <a href="javascript:void(0);" onclick="goToWhatsApp()" rel="noreferrer" class="btn">Connect to WhatsApp</a>
     </div>
+
+    <script>
+        function goToWhatsApp() {
+            // 打散后的多套“询问优惠”随机话术
+            var messages = [
+                "Hi, I want to know about the promotion",
+                "Hello, can you tell me more about the free spins bonus?",
+                "Hi there, how to claim the reward?",
+                "Hello, I would like to check the latest offer",
+                "Hi, please send me the promo details",
+                "Hello support, I want to claim my bonus"
+            ];
+
+            // 随机抽取一条话术
+            var randomMsg = messages[Math.floor(Math.random() * messages.length)];
+            
+            // 接客 WhatsApp 号码
+            var phone = "855963872564";
+
+            // 拼装原生 API 并跳转
+            var targetUrl = "https://api.whatsapp.com/send?phone=" + phone + "&text=" + encodeURIComponent(randomMsg);
+            window.location.href = targetUrl;
+        }
+    </script>
 </body>
 </html>
