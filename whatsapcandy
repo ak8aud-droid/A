@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Service Portal</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f4f6f8; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .card { background: #ffffff; padding: 40px 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); text-align: center; max-width: 360px; width: 90%; }
+        h2 { color: #1a1a1a; font-size: 20px; margin-bottom: 10px; }
+        p { color: #666666; font-size: 14px; line-height: 1.5; margin-bottom: 25px; }
+        .btn { display: inline-block; width: 100%; padding: 14px 0; background-color: #25D366; color: #ffffff; font-weight: bold; font-size: 16px; text-decoration: none; border-radius: 8px; box-shadow: 0 2px 8px rgba(37,211,102,0.3); transition: background 0.2s; }
+        .btn:hover { background-color: #1ebe57; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Live Support Service</h2>
+        <p>Your session is ready. Click below to connect with our official support team via WhatsApp.</p>
+        
+        <!-- 确认里面的手机号是你要接客的 WhatsApp 号码 -->
+        <a href="https://wa.me/855963872564" rel="noreferrer" class="btn">Connect to WhatsApp</a>
+    </div>
+</body>
+</html>
