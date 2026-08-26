@@ -12,11 +12,50 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
+      // 初始化 Google Analytics
       gtag('config', 'G-F3TZDNXZFF');
     </script>
 
+    <!-- 这里是让名片变好看的 CSS 样式 -->
+    <style>
+        body {
+            background-color: #0d1117; /* 深色背景 */
+            color: #c9d1d9; /* 浅灰色文字 */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+        }
+        h2 {
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 25px;
+            padding: 0 15px;
+        }
+        .btn {
+            background-color: #238636; /* 绿色按钮 */
+            color: #ffffff;
+            text-decoration: none; /* 移除下划线 */
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            display: inline-block;
+            transition: background-color 0.2s;
+        }
+        .btn:hover {
+            background-color: #2ea043; /* 悬停时颜色 */
+        }
+    </style>
+
     <script>
         function goToWhatsApp() {
+            // 触发 GA4 事件记录点击跳转
             if (typeof gtag === 'function') {
                 gtag('event', 'click_whatsapp', {
                     'event_category': 'Outbound',
@@ -24,6 +63,7 @@
                 });
             }
 
+            // 你的随机话术
             var messages = [
                 "Hi, I want to know about the promotion",
                 "Hello, can you tell me more about the free spins bonus?",
@@ -34,9 +74,13 @@
             ];
 
             var randomMsg = messages[Math.floor(Math.random() * messages.length)];
+            
+            // 你的接客号码
             var phone = "855963872564";
+
             var targetUrl = "https://api.whatsapp.com/send?phone=" + phone + "&text=" + encodeURIComponent(randomMsg);
 
+            // 延迟跳转，确保统计成功发送
             setTimeout(function() {
                 window.location.href = targetUrl;
             }, 300);
@@ -48,6 +92,7 @@
     <h2>Live Support Service</h2>
     <p>Your session is ready. Click below to connect with our official support team via WhatsApp.</p>
 
+    <!-- 此按钮带有美化样式 .btn -->
     <a href="javascript:void(0);" onclick="goToWhatsApp()" rel="noreferrer" class="btn">Connect to WhatsApp</a>
 
 </body>
