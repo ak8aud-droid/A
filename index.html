@@ -12,19 +12,18 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      // 初始化 GA4
       gtag('config', 'G-F3TZDNXZFF');
     </script>
 
     <script>
         function goToWhatsApp() {
-            // 触发 GA4 事件记录：用户点击了 WhatsApp 按钮
-            gtag('event', 'click_whatsapp', {
-                'event_category': 'Outbound',
-                'event_label': 'WhatsApp Redirection'
-            });
+            if (typeof gtag === 'function') {
+                gtag('event', 'click_whatsapp', {
+                    'event_category': 'Outbound',
+                    'event_label': 'WhatsApp Redirection'
+                });
+            }
 
-            // 打散后的多套“询问优惠”随机话术
             var messages = [
                 "Hi, I want to know about the promotion",
                 "Hello, can you tell me more about the free spins bonus?",
@@ -34,19 +33,13 @@
                 "Hello support, I want to claim my bonus"
             ];
 
-            // 随机抽取一条话术
             var randomMsg = messages[Math.floor(Math.random() * messages.length)];
-            
-            // 接客 WhatsApp 号码
             var phone = "855963872564";
-
-            // 拼装原生 API
             var targetUrl = "https://api.whatsapp.com/send?phone=" + phone + "&text=" + encodeURIComponent(randomMsg);
 
-            // 延迟 200 毫秒跳转，确保 GA4 统计数据成功发送给 Google 服务器
             setTimeout(function() {
                 window.location.href = targetUrl;
-            }, 200);
+            }, 300);
         }
     </script>
 </head>
@@ -55,7 +48,6 @@
     <h2>Live Support Service</h2>
     <p>Your session is ready. Click below to connect with our official support team via WhatsApp.</p>
 
-    <!-- 按钮触发动态随机跳转 + GA4 点击统计 -->
     <a href="javascript:void(0);" onclick="goToWhatsApp()" rel="noreferrer" class="btn">Connect to WhatsApp</a>
 
 </body>
