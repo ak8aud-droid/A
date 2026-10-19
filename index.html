@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Support Service</title>
+    <title>AK8 - Live Support Service</title>
 
     <!-- Google tag (gtag.js) - GA4 Tracking -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F3TZDNXZFF"></script>
@@ -17,8 +17,8 @@
 
     <style>
         body {
-            background-color: #0f172a;
-            color: #f8fafc;
+            background-color: #120808; /* 紅色系暗色背景 */
+            color: #fef2f2;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             display: flex;
             justify-content: center;
@@ -27,30 +27,31 @@
             margin: 0;
         }
         .card {
-            background-color: #1e293b;
+            background-color: #1f0f0f; /* 卡片深紅黑底色 */
             padding: 40px 30px;
             border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.15);
             text-align: center;
             max-width: 380px;
             width: 88%;
-            border: 1px solid #334155;
+            border: 1px solid #7f1d1d; /* 紅色系邊框 */
         }
         .brand-logo {
-            width: 90px;
+            width: 100px;
             height: auto;
             margin-bottom: 16px;
             object-fit: contain;
+            filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.4));
         }
         h2 {
-            color: #f8fafc;
+            color: #fef2f2;
             margin-top: 0;
             margin-bottom: 10px;
             font-size: 20px;
             font-weight: 600;
         }
         p {
-            color: #94a3b8;
+            color: #fca5a5;
             margin-bottom: 24px;
             font-size: 14px;
             line-height: 1.5;
@@ -59,7 +60,7 @@
             background-color: #25D366;
             color: #ffffff;
             text-decoration: none;
-            padding: 12px 20px;
+            padding: 13px 20px;
             border-radius: 12px;
             font-weight: bold;
             font-size: 14px;
@@ -71,18 +72,19 @@
         .btn:hover {
             opacity: 0.9;
         }
+        /* Claim Bonus 按鈕改為亮紅色系 */
         .btn-platform {
-            background-color: #6366f1;
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
         }
         .btn-feedback {
             background-color: transparent;
-            color: #38bdf8;
-            border: 1px solid #38bdf8;
+            color: #f87171;
+            border: 1px solid #ef4444;
             box-shadow: none;
         }
         .btn-feedback:hover {
-            background-color: rgba(56, 189, 248, 0.1);
+            background-color: rgba(239, 68, 68, 0.1);
         }
 
         /* 彈跳視窗樣式 (Modal) */
@@ -93,7 +95,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.75);
             justify-content: center;
             align-items: center;
             z-index: 1000;
@@ -101,14 +103,14 @@
             box-sizing: border-box;
         }
         .modal-card {
-            background-color: #1e293b;
-            border: 1px solid #38bdf8;
+            background-color: #1f0f0f;
+            border: 1px solid #ef4444;
             border-radius: 16px;
             width: 100%;
             max-width: 400px;
             padding: 24px;
             box-sizing: border-box;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
             text-align: left;
             position: relative;
         }
@@ -119,51 +121,51 @@
             margin-bottom: 16px;
         }
         .modal-title {
-            color: #38bdf8;
+            color: #f87171;
             font-size: 18px;
             font-weight: bold;
             margin: 0 0 4px 0;
         }
         .modal-subtitle {
-            color: #94a3b8;
+            color: #fca5a5;
             font-size: 12px;
             margin: 0;
         }
         .close-btn {
             background: none;
             border: none;
-            color: #94a3b8;
+            color: #fca5a5;
             font-size: 20px;
             cursor: pointer;
             padding: 0;
             line-height: 1;
         }
         .close-btn:hover {
-            color: #f8fafc;
+            color: #fef2f2;
         }
         .form-group {
             margin-bottom: 14px;
         }
         .form-label {
             display: block;
-            color: #cbd5e1;
+            color: #fecaca;
             font-size: 13px;
             margin-bottom: 6px;
         }
         .form-input, .form-textarea {
             width: 100%;
-            background-color: #0f172a;
-            border: 1px solid #334155;
+            background-color: #120808;
+            border: 1px solid #7f1d1d;
             border-radius: 8px;
             padding: 10px 12px;
-            color: #f8fafc;
+            color: #fef2f2;
             font-size: 13px;
             box-sizing: border-box;
             outline: none;
             transition: border-color 0.2s;
         }
         .form-input:focus, .form-textarea:focus {
-            border-color: #38bdf8;
+            border-color: #ef4444;
         }
         .form-textarea {
             resize: vertical;
@@ -171,8 +173,8 @@
         }
         .submit-btn {
             width: 100%;
-            background-color: #38bdf8;
-            color: #0f172a;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: #fef2f2;
             border: none;
             border-radius: 8px;
             padding: 12px;
@@ -224,9 +226,14 @@
                 return;
             }
 
-            // Bot Token 已填入，請將 YOUR_CHAT_ID 換成你的 Telegram Chat ID 數字
+            // Bot Token 已設定，請將 'YOUR_CHAT_ID' 換成你用 @userinfobot 查到的數字 ID (例如 '123456789')
             const botToken = '8560784696:AAG3r-zTD92PRSmGq9MgYEx4yqxu6NrbnU'; 
-            const chatId = 'YOUR_CHAT_ID';
+            const chatId = '8709517129';
+
+            if (chatId === '8709517129') {
+                alert('請先在程式碼中填入你的 Telegram Chat ID 才能發送訊息！');
+                return;
+            }
 
             const text = `📢 【新建議與投訴】\n👤 名字: ${name}\n📞 電話: ${phone}\n💬 內容:\n${message}`;
             const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
@@ -268,8 +275,8 @@
 <body>
 
     <div class="card">
-        <!-- Logo -->
-        <img src="image_62955f.png" alt="AK8 Logo" class="brand-logo">
+        <!-- Logo (內嵌圖片確保絕對能正常顯示) -->
+        <img src="https://i.imgur.com/8Qh1V4c.png" alt="AK8 Logo" class="brand-logo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'40\'><text x=\'0\' y=\'30\' fill=\'%23ef4444\' font-size=\'28\' font-weight=\'bold\'>AK8</text></svg>'">
 
         <h2>Live Support Service</h2>
         <p>Your session is ready. Choose an option below to connect with us.</p>
@@ -277,8 +284,8 @@
         <!-- WhatsApp 按鈕 -->
         <a href="javascript:void(0);" onclick="trackAndRedirect('whatsapp', 'https://dub.sh/candycandy')" rel="noreferrer" class="btn">Connect to WhatsApp</a>
         
-        <!-- 平台選項按鈕 -->
-        <a href="javascript:void(0);" onclick="trackAndRedirect('platform', 'https://dub.sh/videochatroom')" rel="noreferrer" class="btn btn-platform">Platform Chat Room</a>
+        <!-- Claim Bonus 按鈕 -->
+        <a href="javascript:void(0);" onclick="trackAndRedirect('bonus', 'https://dub.sh/videochatroom')" rel="noreferrer" class="btn btn-platform">Claim Bonus</a>
 
         <!-- 建議投訴按鈕 -->
         <a href="javascript:void(0);" onclick="openFeedbackModal()" class="btn btn-feedback">Feedback & Complaints</a>
