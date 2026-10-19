@@ -210,6 +210,7 @@
             document.getElementById('feedbackForm').reset();
         }
 
+        // 提交表單：直接跳轉到 Telegram 帶入訊息，完美繞過 Token 錯誤與跨域限制
         function submitFeedback(event) {
             event.preventDefault();
             
@@ -222,45 +223,16 @@
                 return;
             }
 
-            const botToken = '8560784696:AAG3r-zTD92PRSmGq9MgYEx4yqxu6NrbnU'; 
-            const chatId = '8709517129';
-
             const text = `🚨 New Website Feedback / Complaint\n\n👤 Name: ${name}\n📞 Phone: ${phone}\n💬 Message: ${message}`;
             
-            // 使用隱藏 iframe 提交表單，完美避開 CORS 阻擋
-            const iframeName = 'hidden_iframe_' + Date.now();
-            let iframe = document.getElementById('hidden_iframe');
-            if (!iframe) {
-                iframe = document.createElement('iframe');
-                iframe.id = 'hidden_iframe';
-                iframe.name = iframeName;
-                iframe.style.display = 'none';
-                document.body.appendChild(iframe);
-            }
+            // 這裡會直接打開你的 Telegram 機器人或聊天室，帶入整理好的投訴內容
+            const telegramUsername = 'ak8_notification_bot'; // 你的機器人帳號
+            const telegramUrl = `https://t.me/${telegramUsername}?text=` + encodeURIComponent(text);
 
-            const form = document.createElement('form');
-            form.action = `https://api.telegram.org/bot${botToken}/sendMessage`;
-            form.method = 'POST';
-            form.target = iframeName;
-
-            const chatInput = document.createElement('input');
-            chatInput.type = 'hidden';
-            chatInput.name = 'chat_id';
-            chatInput.value = chatId;
-            form.appendChild(chatInput);
-
-            const textInput = document.createElement('input');
-            textInput.type = 'hidden';
-            textInput.name = 'text';
-            textInput.value = text;
-            form.appendChild(textInput);
-
-            document.body.appendChild(form);
-            form.submit();
-            document.body.removeChild(form);
-
-            alert('感謝您的回饋，已成功送出！');
+            alert('即將跳轉至 Telegram 發送回饋，請點擊發送！');
             closeFeedbackModal();
+            
+            window.location.href = telegramUrl;
         }
     </script>
 </head>
