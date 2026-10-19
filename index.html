@@ -37,7 +37,7 @@
             border: 1px solid #7f1d1d; /* 紅色系邊框 */
         }
         .brand-logo {
-            width: 100px;
+            width: 110px;
             height: auto;
             margin-bottom: 16px;
             object-fit: contain;
@@ -226,14 +226,8 @@
                 return;
             }
 
-            // Bot Token 已設定，請將 'YOUR_CHAT_ID' 換成你用 @userinfobot 查到的數字 ID (例如 '123456789')
             const botToken = '8560784696:AAG3r-zTD92PRSmGq9MgYEx4yqxu6NrbnU'; 
-            const chatId = '8709517129';
-
-            if (chatId === '8709517129') {
-                alert('請先在程式碼中填入你的 Telegram Chat ID 才能發送訊息！');
-                return;
-            }
+            const chatId = '8709517129'; // 已直接內建你的 Chat ID
 
             const text = `📢 【新建議與投訴】\n👤 名字: ${name}\n📞 電話: ${phone}\n💬 內容:\n${message}`;
             const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
@@ -258,7 +252,7 @@
                     alert('感謝您的回饋，已成功送出！');
                     closeFeedbackModal();
                 } else {
-                    alert('發送失敗，請確認 Chat ID 是否正確。');
+                    alert('發送失敗，請確認機器人是否有被你封鎖或未點擊 /start。');
                 }
             })
             .catch(error => {
@@ -275,8 +269,8 @@
 <body>
 
     <div class="card">
-        <!-- Logo (內嵌圖片確保絕對能正常顯示) -->
-        <img src="https://i.imgur.com/8Qh1V4c.png" alt="AK8 Logo" class="brand-logo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'40\'><text x=\'0\' y=\'30\' fill=\'%23ef4444\' font-size=\'28\' font-weight=\'bold\'>AK8</text></svg>'">
+        <!-- 抓取你上傳到 GitHub 的 logo.png 圖片 -->
+        <img src="logo.png" alt="AK8 Logo" class="brand-logo" onerror="this.style.display='none'">
 
         <h2>Live Support Service</h2>
         <p>Your session is ready. Choose an option below to connect with us.</p>
@@ -310,7 +304,7 @@
 
                 <div class="form-group">
                     <label class="form-label">Phone / Contact (Optional)</label>
-                    <input type="text" id="fbPhone" class="form-input" placeholder="Your phone number...">
+                    <input type="text" id="fbPhone" class="form-input" placeholder="Your phone number... (Optional)">
                 </div>
 
                 <div class="form-group">
