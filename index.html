@@ -217,8 +217,8 @@
         function submitFeedback(event) {
             event.preventDefault();
             
-            const name = document.getElementById('fbName').value || '未填寫';
-            const phone = document.getElementById('fbPhone').value || '未填寫';
+            const name = document.getElementById('fbName').value || 'Anonymous';
+            const phone = document.getElementById('fbPhone').value || 'Not provided';
             const message = document.getElementById('fbMessage').value;
 
             if (!message.trim()) {
@@ -226,10 +226,11 @@
                 return;
             }
 
+            // 直接內建你的正確 Bot Token 與 Chat ID
             const botToken = '8560784696:AAG3r-zTD92PRSmGq9MgYEx4yqxu6NrbnU'; 
-            const chatId = '8709517129'; // 已直接內建你的 Chat ID
+            const chatId = '8709517129';
 
-            const text = `📢 【新建議與投訴】\n👤 名字: ${name}\n📞 電話: ${phone}\n💬 內容:\n${message}`;
+            const text = `🚨 New Website Feedback / Complaint\n\n👤 Name: ${name}\n📞 Phone: ${phone}\n💬 Message: ${message}`;
             const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
             const submitBtn = document.getElementById('submitBtn');
@@ -252,7 +253,7 @@
                     alert('感謝您的回饋，已成功送出！');
                     closeFeedbackModal();
                 } else {
-                    alert('發送失敗，請確認機器人是否有被你封鎖或未點擊 /start。');
+                    alert('發送失敗: ' + (data.description || '未知錯誤'));
                 }
             })
             .catch(error => {
@@ -304,7 +305,7 @@
 
                 <div class="form-group">
                     <label class="form-label">Phone / Contact (Optional)</label>
-                    <input type="text" id="fbPhone" class="form-input" placeholder="Your phone number... (Optional)">
+                    <input type="text" id="fbPhone" class="form-input" placeholder="Your phone number...">
                 </div>
 
                 <div class="form-group">
